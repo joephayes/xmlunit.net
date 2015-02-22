@@ -13,6 +13,8 @@
   limitations under the License.
 -->
 <project name="xmlunit" description="XMLUnit for .Net" default="compile">
+  <property name="build.target.framework" overwrite="false" value="3.5"/>
+
   <property name="project.version" value="2.0.0" overwrite="false"/>
   <property name="project.version4" value="${project.version}.0"
             overwrite="false"/>
@@ -51,6 +53,7 @@
     value="lib" />
 
   <property name="nuget.executable" overwrite="false" value="${tools.dir}/nuget.exe"/>
+  <property name="nant.settings.currentframework" value="${framework::get-family(nant.settings.currentframework)}-${build.target.framework}" />
 
   <target name="init" description="prepare for other targets">
     <mkdir dir="${gen.core.dir}"/>
